@@ -1,0 +1,11 @@
+Package: Rising.fit
+Type: Package
+Title: Fitting Ising models using the eLasso method
+Version: 0.1.1
+Date: 2013-08-22
+Depends: R (>= 3.0.0)
+Imports:  qgraph, Matrix, glmnet
+Author: Claudia van Borkulo, Sacha Epskamp
+Maintainer: Claudia van Borkulo <cvborkulo@gmail.com>
+Description: This network estimation procedure combines l1-regularized logistic regression with model selection based on the Extended Bayesian Information Criterion to identify relevant symptom-symptom relationships. These relationships define connections in a network.
+License: GPL-2

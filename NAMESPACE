@@ -1,0 +1,8 @@
+export(Rising.fit)
+S3method(plot,Rising.fit)
+S3method(print,Rising.fit)
+S3method(summary,Rising.fit)
+
+import(qgraph)
+import(Matrix)
+import(glmnet)
