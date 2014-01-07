@@ -48,18 +48,10 @@ Van Borkulo, C.D., Borsboom, D., Epskamp, S., Blanken, T., Bosschloo, L., Schoev
 Claudia van Borkulo <cvborkulo@gmail.com>
 }
 \note{
-I should have an awesome website, but I haven't. Sorry about that!
+See also my website: http://cvborkulo.com
 }
 
 
-\seealso{
-qgraph IsingSampler
-}
-\examples{
-
-
-
-}
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
 % \keyword{ ~kwd1 }
