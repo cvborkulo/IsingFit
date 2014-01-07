@@ -5,7 +5,7 @@
 Network estimation using the eLasso method
 }
 \description{
-This network estimation procedure combines l1-regularized logistic regression with a Goodness of fit measures 'extended' Bayesian information criterion) to identify relevant entity-entity relationships. These relationships define connections in a network.
+This network estimation procedure combines l1-regularized logistic regression with model selection based on the Extended Bayesian Information Criterion to identify relevant symptom-symptom relationships. These relationships define connections in a network.
 }
 \usage{
 Rising.fit(x, AND = TRUE, gamma = 0.25, plot = TRUE, progressbar = TRUE, ...)
