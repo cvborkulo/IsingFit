@@ -51,7 +51,32 @@ Claudia van Borkulo <cvborkulo@gmail.com>
 See also my website: http://cvborkulo.com
 }
 
+\examples{
+library("IsingSampler")
 
+### Simulate dataset ###
+# Input:
+N <- 6 # Number of nodes
+nSample <- 1000 # Number of samples
+
+# Ising parameters:
+Graph <- matrix(sample(0:1,N^2,TRUE,prob = c(0.8, 0.2)),N,N) * runif(N^2,0.5,2)
+Graph <- pmax(Graph,t(Graph))
+diag(Graph) <- 0
+Thresh <- -rowSums(Graph) / 2
+
+# Siumlate:
+Data <- IsingSampler(nSample, Graph, Thresh)
+
+### Fit using Rising.fit ###
+Res <- Rising.fit(Data, plot=FALSE)
+
+# Plot results:
+library("qgraph")
+layout(t(1:2))
+qgraph(Res$weiadj,fade = FALSE, title = "Estimated network")
+qgraph(Graph,fade = FALSE, title = "Original network")
+}
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
 % \keyword{ ~kwd1 }
