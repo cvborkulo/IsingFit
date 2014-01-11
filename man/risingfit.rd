@@ -1,5 +1,5 @@
-\name{Rising.fit}
-\alias{Rising.fit}
+\name{Risingfit}
+\alias{Risingfit}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
 Network estimation using the eLasso method
@@ -8,7 +8,7 @@ Network estimation using the eLasso method
 This network estimation procedure combines l1-regularized logistic regression with model selection based on the Extended Bayesian Information Criterion to identify relevant symptom-symptom relationships. These relationships define connections in a network.
 }
 \usage{
-Rising.fit(x, AND = TRUE, gamma = 0.25, plot = TRUE, progressbar = TRUE, ...)
+Risingfit(x, AND = TRUE, gamma = 0.25, plot = TRUE, progressbar = TRUE, ...)
 }
 
 \arguments{
@@ -33,7 +33,7 @@ Arguments sent to \code{qgraph}.
 }
 
 \value{
-Rising.fit returns (invisibly) a 'Rising.fit' object that contains the following items:
+Risingfit returns (invisibly) a 'Risingfit' object that contains the following items:
 \item{weiadj }{The weighted adjacency matrix.}
 \item{thresholds }{Thresholds of the variables.}
 \item{q }{The object that is returned by qgraph (class 'qgraph').}
@@ -68,8 +68,8 @@ Thresh <- -rowSums(Graph) / 2
 # Siumlate:
 Data <- IsingSampler(nSample, Graph, Thresh)
 
-### Fit using Rising.fit ###
-Res <- Rising.fit(Data, plot=FALSE)
+### Fit using Risingfit ###
+Res <- Risingfit(Data, plot=FALSE)
 
 # Plot results:
 library("qgraph")

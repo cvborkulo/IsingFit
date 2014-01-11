@@ -1,5 +1,5 @@
-\name{Rising.fit-package}
-\alias{Rising.fit-package}
+\name{Risingfit-package}
+\alias{Risingfit-package}
 \docType{package}
 \title{
 Network estimation using the eLasso method
@@ -9,7 +9,7 @@ This network estimation procedure combines l1-regularized logistic regression wi
 }
 \details{
 \tabular{ll}{
-Package: \tab Rising.fit\cr
+Package: \tab Risingfit\cr
 Type: \tab Package\cr
 Version: \tab 1.0\cr
 Date: \tab 2013-08-22\cr
@@ -27,7 +27,7 @@ Maintainer: Claudia D. van Borkulo <cvborkulo@gmail.com>
 ~~ Literature or other references for background information ~~
 Chen, J., & Chen, Z. (2008). Extended bayesian information criteria for model selection with large model spaces. Biometrika, 95(3), 759-771.
 Foygel, R., & Drton, M. (2011). Bayesian model choice and information criteria in sparse generalized linear models. arXiv preprint arXiv:1112.5635.
-
+Van Borkulo, C. D., Borsboom, D., Epskamp, S., Blanken, T. F., Boschloo, L., Schoevers, R. A., & Waldorp, L. J. (manuscript submitted for publication). Fitting like a glove: New methodology for constructing networks from psychometric data.
 }
 % ~~ Optionally other standard keywords, one per line, from file ~~
 % ~~ KEYWORDS in the R documentation directory ~~

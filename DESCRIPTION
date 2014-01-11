@@ -1,4 +1,4 @@
-Package: Rising.fit
+Package: Risingfit
 Type: Package
 Title: Fitting Ising models using the eLasso method
 Version: 0.1.2

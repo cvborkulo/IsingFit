@@ -1,2 +1,2 @@
-plot.Rising.fit <-
+plot.Risingfit <-
 function(x,...) qgraph(x$q,DoNotPlot = FALSE, ...)

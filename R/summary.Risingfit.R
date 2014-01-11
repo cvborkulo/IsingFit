@@ -1,4 +1,4 @@
-summary.Rising.fit <-
+summary.Risingfit <-
 function(object, ...)
 {
   cat("\tNetwork Density:\t\t", round(mean(object$weiadj[upper.tri(object$weiadj)]!=0),2),"\n",

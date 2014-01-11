@@ -1,4 +1,4 @@
-print.Rising.fit <-
+print.Risingfit <-
 function(x, ...)
 {
   cat("Estimated network:\n")
