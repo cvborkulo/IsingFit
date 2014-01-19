@@ -1,14 +1,13 @@
-\name{Risingfit}
-\alias{Risingfit}
-%- Also NEED an '\alias' for EACH other topic documented here.
+\name{IsingFit}
+\alias{IsingFit}
 \title{
 Network estimation using the eLasso method
 }
 \description{
-This network estimation procedure combines l1-regularized logistic regression with model selection based on the Extended Bayesian Information Criterion to identify relevant symptom-symptom relationships. These relationships define connections in a network.
+This network estimation procedure eLasso, which is based on the Ising model, combines l1-regularized logistic regression with model selection based on the Extended Bayesian Information Criterion (EBIC). EBIC is a fit measure that identifies relevant relationships between variables. The resulting network consists of variables as nodes and relevant relationships as edges.
 }
 \usage{
-Risingfit(x, AND = TRUE, gamma = 0.25, plot = TRUE, progressbar = TRUE, ...)
+IsingFit(x, AND = TRUE, gamma = 0.25, plot = TRUE, progressbar = TRUE, ...)
 }
 
 \arguments{
@@ -33,7 +32,7 @@ Arguments sent to \code{qgraph}.
 }
 
 \value{
-Risingfit returns (invisibly) a 'Risingfit' object that contains the following items:
+IsingFit returns (invisibly) a 'IsingFit' object that contains the following items:
 \item{weiadj }{The weighted adjacency matrix.}
 \item{thresholds }{Thresholds of the variables.}
 \item{q }{The object that is returned by qgraph (class 'qgraph').}
@@ -68,8 +67,8 @@ Thresh <- -rowSums(Graph) / 2
 # Siumlate:
 Data <- IsingSampler(nSample, Graph, Thresh)
 
-### Fit using Risingfit ###
-Res <- Risingfit(Data, plot=FALSE)
+### Fit using IsingFit ###
+Res <- IsingFit(Data, plot=FALSE)
 
 # Plot results:
 library("qgraph")

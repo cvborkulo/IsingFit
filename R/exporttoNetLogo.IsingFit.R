@@ -18,7 +18,7 @@ netlogo <- function(x)
 
 # zo maken dat de weiadj en thresholds als aparte objecten eruit komen die als txt-file opgeslagen kunnen worden.
 # Ook zo maken dat deze functie individueel opgeroepen kan worden. Bijv om de symptoomnamen in file te krijgen.
-exportNetLogo.Risingfit <- function(object,....)
+exportNetLogo.IsingFit <- function(object,....)
 {
   if (is.character(object))
   {

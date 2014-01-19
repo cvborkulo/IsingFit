@@ -1,7 +1,7 @@
-export(Risingfit)
-S3method(plot,Risingfit)
-S3method(print,Risingfit)
-S3method(summary,Risingfit)
+export(IsingFit)
+S3method(plot,IsingFit)
+S3method(print,IsingFit)
+S3method(summary,IsingFit)
 
 import(qgraph)
 import(Matrix)

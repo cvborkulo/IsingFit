@@ -1,15 +1,15 @@
-\name{Risingfit-package}
-\alias{Risingfit-package}
+\name{IsingFit-package}
+\alias{IsingFit-package}
 \docType{package}
 \title{
 Network estimation using the eLasso method
 }
 \description{
-This network estimation procedure combines l1-regularized logistic regression with model selection based on the Extended Bayesian Information Criterion to identify relevant symptom-symptom relationships. These relationships define connections in a network.
+This network estimation procedure eLasso, which is based on the Ising model, combines l1-regularized logistic regression with model selection based on the Extended Bayesian Information Criterion (EBIC). EBIC is a fit measure that identifies relevant relationships between variables. The resulting network consists of variables as nodes and relevant relationships as edges.
 }
 \details{
 \tabular{ll}{
-Package: \tab Risingfit\cr
+Package: \tab IsingFit\cr
 Type: \tab Package\cr
 Version: \tab 1.0\cr
 Date: \tab 2013-08-22\cr

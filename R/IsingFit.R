@@ -1,4 +1,4 @@
-Risingfit <-
+IsingFit <-
 function(x, AND=TRUE, gamma=.25, plot=TRUE, progressbar=TRUE,...){
   # Time start:
   t0 <- Sys.time()
@@ -92,16 +92,16 @@ function(x, AND=TRUE, gamma=.25, plot=TRUE, progressbar=TRUE,...){
   
   # Create class:
   Res <- list(weiadj = graphNew, thresholds = threshNew, q = q, gamma = gamma, AND = AND, time = Sys.time() - t0)
-  class(Res) <- "Risingfit"
+  class(Res) <- "IsingFit"
   
   
   return(Res)
 }
 
 ## Methods:
-plot.Risingfit <- function(object,...) qgraph(object$q,DoNotPlot = FALSE, ...)
+plot.IsingFit <- function(object,...) qgraph(object$q,DoNotPlot = FALSE, ...)
 
-print.Risingfit <- function(x)
+print.IsingFit <- function(x)
 {
   cat("Estimated network:\n")
   
@@ -112,7 +112,7 @@ print.Risingfit <- function(x)
   print(x$thresholds)  
 }
 
-summary.Risingfit <- function(object)
+summary.IsingFit <- function(object)
 {
   cat("\tNetwork Density:\t\t", round(mean(object$weiadj[upper.tri(object$weiadj)]!=0),2),"\n",
       "Gamma:\t\t\t",round(object$gamma,2),"\n",
@@ -121,7 +121,7 @@ summary.Risingfit <- function(object)
   )
 }
 
-exportNetLogo.Risingfit <- function(x)
+exportNetLogo.IsingFit <- function(x)
 {
   if (is.character(x))
   {
