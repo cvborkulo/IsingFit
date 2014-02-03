@@ -41,7 +41,7 @@ IsingFit returns (invisibly) a 'IsingFit' object that contains the following ite
 \item{time }{The time it took to estimate the network.}
 }
 \references{
-Van Borkulo, C.D., Borsboom, D., Epskamp, S., Blanken, T., Bosschloo, L., Schoevers, R. A., & Waldorp, L. J. (2013). Fitting like a glove: A new method for constructing networks for psychometric data. Manuscript in preparation.
+Van Borkulo, C.D., Borsboom, D., Epskamp, S., Blanken, T., Bosschloo, L., Schoevers, R. A., & Waldorp, L. J. (2013). Fitting like a glove: A new method for constructing networks for psychometric data. Manuscript submitted for publication.
 }
 \author{
 Claudia van Borkulo <cvborkulo@gmail.com>
@@ -73,8 +73,10 @@ Res <- IsingFit(Data, plot=FALSE)
 # Plot results:
 library("qgraph")
 layout(t(1:2))
-qgraph(Res$weiadj,fade = FALSE, title = "Estimated network")
-qgraph(Graph,fade = FALSE, title = "Original network")
+qgraph(Res$weiadj,fade = FALSE)
+title("Estimated network")
+qgraph(Graph,fade = FALSE)
+title("Original network")
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

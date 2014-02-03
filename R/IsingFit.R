@@ -83,6 +83,7 @@ function(x, AND=TRUE, gamma=.25, plot=TRUE, progressbar=TRUE,...){
   # Put in new matrices:
   graphNew <- matrix(0,length(NodesToAnalyze),length(NodesToAnalyze))
   graphNew[NodesToAnalyze,NodesToAnalyze] <- meanweights.opt
+  colnames(graphNew) <- rownames(graphNew) <- colnames(x)
   
   threshNew <- ifelse(allthemeans > 0.5, -Inf, Inf)
   threshNew[NodesToAnalyze] <- thresholds
