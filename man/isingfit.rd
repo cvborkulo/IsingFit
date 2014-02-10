@@ -4,15 +4,18 @@
 Network estimation using the eLasso method
 }
 \description{
-This network estimation procedure eLasso, which is based on the Ising model, combines l1-regularized logistic regression with model selection based on the Extended Bayesian Information Criterion (EBIC). EBIC is a fit measure that identifies relevant relationships between variables. The resulting network consists of variables as nodes and relevant relationships as edges.
+This network estimation procedure eLasso, which is based on the Ising model, combines l1-regularized logistic regression with model selection based on the Extended Bayesian Information Criterion (EBIC). EBIC is a fit measure that identifies relevant relationships between variables. The resulting network consists of variables as nodes and relevant relationships as edges. Can deal with binary or continuous data.
 }
 \usage{
-IsingFit(x, AND = TRUE, gamma = 0.25, plot = TRUE, progressbar = TRUE, ...)
+IsingFit(x, family=c('binomial', 'continuous'), AND = TRUE, gamma = 0.25, plot = TRUE, progressbar = TRUE, ...)
 }
 
 \arguments{
   \item{x}{
-A binary matrix.
+Input matrix. The dimension of the matrix is nobs x nvars; each row is a vector of observations of the variables. Must be cross-sectional data.
+}
+\item{family}{
+Response type. For binary data family='binomial'. For continuous data family='mgaussian'.
 }
   \item{AND}{
 Logical. Can be TRUE of FALSE to indicate whether the AND-rule or the OR-rule should be used to define the edges in the network. Defaults to TRUE.
@@ -68,7 +71,7 @@ Thresh <- -rowSums(Graph) / 2
 Data <- IsingSampler(nSample, Graph, Thresh)
 
 ### Fit using IsingFit ###
-Res <- IsingFit(Data, plot=FALSE)
+Res <- IsingFit(Data, family='binomial', plot=FALSE)
 
 # Plot results:
 library("qgraph")
