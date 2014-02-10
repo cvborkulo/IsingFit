@@ -7,7 +7,7 @@ Network estimation using the eLasso method
 This network estimation procedure eLasso, which is based on the Ising model, combines l1-regularized logistic regression with model selection based on the Extended Bayesian Information Criterion (EBIC). EBIC is a fit measure that identifies relevant relationships between variables. The resulting network consists of variables as nodes and relevant relationships as edges. Can deal with binary or continuous data.
 }
 \usage{
-IsingFit(x, family=c('binomial', 'mgaussian'), AND = TRUE, gamma = 0.25, plot = TRUE, progressbar = TRUE, ...)
+IsingFit(x, family='binomial', AND = TRUE, gamma = 0.25, plot = TRUE, progressbar = TRUE, ...)
 }
 
 \arguments{
@@ -15,7 +15,7 @@ IsingFit(x, family=c('binomial', 'mgaussian'), AND = TRUE, gamma = 0.25, plot = 
 Input matrix. The dimension of the matrix is nobs x nvars; each row is a vector of observations of the variables. Must be cross-sectional data.
 }
 \item{family}{
-Response type. For binary data family='binomial'. For continuous data family='mgaussian'.
+If 'gaussian' then the data is treated as being continuous. The default is 'binomial', treating the data as binary. Currently, this procedure is only supported for binary or continuous data.
 }
   \item{AND}{
 Logical. Can be TRUE of FALSE to indicate whether the AND-rule or the OR-rule should be used to define the edges in the network. Defaults to TRUE.
@@ -27,7 +27,7 @@ A value of hyperparameter gamma in the extended BIC. Can be anything between 0 a
 Logical. Should the resulting network be plotted?
 }
   \item{progressbar}{
-Logical. Should the progressbar be plotted in order to see the progress of the estimation procedure?
+Logical. Should the pbar be plotted in order to see the progress of the estimation procedure?
 }
 \item{\dots}{
 Arguments sent to \code{qgraph}.

@@ -1,6 +1,8 @@
 IsingFit <-
-function(x, family=c('binomial', 'mgaussian'), AND = TRUE, gamma = 0.25, plot = TRUE, progressbar = TRUE, ...){
+function(x, family='binomial', AND = TRUE, gamma = 0.25, plot = TRUE, progressbar = TRUE, ...){
   t0 <- Sys.time()
+  if (family!='binomial'&family!='gaussian') 
+    stop ("This procedure is currently only supported for binary (family='binomial') or continuous data (family='gaussian')")
   NodesToAnalyze <- apply(x,2,sd, na.rm=TRUE) != 0
   names(NodesToAnalyze) <- colnames(x)
   if (!any(NodesToAnalyze)) stop("No variance in dataset")
