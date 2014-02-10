@@ -1,5 +1,5 @@
 IsingFit <-
-function(x, family=c('binomial', 'continuous'), AND = TRUE, gamma = 0.25, plot = TRUE, progressbar = TRUE, ...){
+function(x, family=c('binomial', 'mgaussian'), AND = TRUE, gamma = 0.25, plot = TRUE, progressbar = TRUE, ...){
   t0 <- Sys.time()
   NodesToAnalyze <- apply(x,2,sd, na.rm=TRUE) != 0
   names(NodesToAnalyze) <- colnames(x)
