@@ -26,8 +26,11 @@ Maintainer: Claudia D. van Borkulo <cvborkulo@gmail.com>
 \references{
 ~~ Literature or other references for background information ~~
 Chen, J., & Chen, Z. (2008). Extended bayesian information criteria for model selection with large model spaces. Biometrika, 95(3), 759-771.
+
 Foygel, R., & Drton, M. (2011). Bayesian model choice and information criteria in sparse generalized linear models. arXiv preprint arXiv:1112.5635.
+
 Ravikumar, P., Wainwright, M. J., & Lafferty, J. D. (2010). High-dimensional Ising model selection using l1-regularized logistic regression. The Annals of Statistics, 38, 1287 - 1319.
+
 Van Borkulo, C. D., Borsboom, D., Epskamp, S., Blanken, T. F., Boschloo, L., Schoevers, R. A., & Waldorp, L. J. (manuscript submitted for publication). Fitting like a glove: New methodology for constructing networks from psychometric data.
 }
 % ~~ Optionally other standard keywords, one per line, from file ~~

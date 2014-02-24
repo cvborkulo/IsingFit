@@ -7,7 +7,8 @@ Network estimation using the eLasso method
 This network estimation procedure eLasso, which is based on the Ising model, combines l1-regularized logistic regression with model selection based on the Extended Bayesian Information Criterion (EBIC). EBIC is a fit measure that identifies relevant relationships between variables. The resulting network consists of variables as nodes and relevant relationships as edges. Can deal with binary or continuous data.
 }
 \usage{
-IsingFit(x, family='binomial', AND = TRUE, gamma = 0.25, plot = TRUE, progressbar = TRUE, ...)
+IsingFit(x, family='binomial', AND = TRUE, gamma = 0.25, 
+plot = TRUE, progressbar = TRUE, ...)
 }
 
 \arguments{
@@ -67,7 +68,7 @@ Graph <- pmax(Graph,t(Graph))
 diag(Graph) <- 0
 Thresh <- -rowSums(Graph) / 2
 
-# Siumlate:
+# Simulate:
 Data <- IsingSampler(nSample, Graph, Thresh)
 
 ### Fit using IsingFit ###

@@ -24,23 +24,41 @@ function(x, family='binomial', AND = TRUE, gamma = 0.25, plot = TRUE, progressba
     lambdas[[i]] <- a$lambda
     nlambdas[i] <- length(lambdas[[i]])
   }
-  if (progressbar==TRUE) pb <- txtProgressBar(max=nrow(x), style = 3)
+  if (progressbar==TRUE) pb <- txtProgressBar(max=nvar, style = 3)
   P <- logl <- sumlogl <- J <- matrix(0, max(nlambdas), nvar)
   for (i in 1:nvar)
   {
     J[1:ncol(betas[[i]]),i] <- colSums(betas[[i]]!=0)
   }
-  for (n in 1:nrow(x)){
-    for (i in 1: nvar){
-      y <- intercepts[[i]] + colSums(betas[[i]]*x[n,-i])
-      y <- c(y,rep(NA,max(nlambdas)-length(y)))
-      P[,i] <- exp(y*x[n,i])/(1+exp(y))
-      logl[,i] <- log(P[,i])
+  logl_M <- P_M <- array(0, dim=c(nrow(x),max(nlambdas), nvar) )
+  N <- nrow(x)
+  for (i in 1:nvar){  # i <- 1
+    betas.ii <- as.matrix( betas[[i]] )
+    int.ii <- intercepts[[i]]
+    y <- matrix( 0 , nrow=N , ncol= ncol(betas.ii) ) 
+    xi <- x[,-i]
+    NB <- nrow( betas.ii) # number of rows in beta
+    for (bb in 1:NB){   # bb <- 1
+      y <- y + betas.ii[rep(bb,N),] * xi[,bb]
     }
-    sumlogl <- sumlogl + logl
-    if (progressbar==TRUE) setTxtProgressBar(pb, n)
+    y <- matrix( int.ii , nrow=N , ncol=ncol(y) , byrow=TRUE ) + y
+    # number of NAs
+    n_NA <- max(nlambdas)-ncol(y)
+    if (n_NA > 0 ){ 
+      for ( vv in 1:n_NA){ 
+        y <- cbind( y , NA ) 
+      } 
+    }
+    # calculate P matrix
+    P_M[,,i] <- exp(y*x[,i])/(1+exp(y))
+    logl_M[,,i] <- log(P_M[,,i])	
+    if (progressbar==TRUE) setTxtProgressBar(pb, i)
   }
+  
+  # logl_Msum <- apply( logl_M , c(2,3) , sum , na.rm=TRUE )
+  logl_Msum <- colSums( logl_M , 1, na.rm=FALSE )
   if (progressbar==TRUE) close(pb)
+  sumlogl <- logl_Msum 
   sumlogl[sumlogl==0]=NA
   penalty <- J * log(nrow(x)) + 2 * gamma * J * log(p)
   EBIC <- -2 * sumlogl + penalty
@@ -54,8 +72,6 @@ function(x, family='binomial', AND = TRUE, gamma = 0.25, plot = TRUE, progressba
   }
   if (AND==TRUE) {
     adj <- weights.opt
-#     adj[weights.opt!=0] <- 1
-#     adj[weights.opt=0] <- 0
     adj <- (adj!=0)*1
     EN.weights <- adj * t(adj)
     EN.weights <- EN.weights * weights.opt
