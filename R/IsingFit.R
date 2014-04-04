@@ -1,8 +1,10 @@
 IsingFit <-
 function(x, family='binomial', AND = TRUE, gamma = 0.25, plot = TRUE, progressbar = TRUE, ...){
   t0 <- Sys.time()
-  if (family!='binomial'&family!='gaussian') 
-    stop ("This procedure is currently only supported for binary (family='binomial') or continuous data (family='gaussian')")
+  
+  if (family!='binomial') 
+    stop ("This procedure is currently only supported for binary (family='binomial') data")
+  
   NodesToAnalyze <- apply(x,2,sd, na.rm=TRUE) != 0
   names(NodesToAnalyze) <- colnames(x)
   if (!any(NodesToAnalyze)) stop("No variance in dataset")
@@ -10,6 +12,7 @@ function(x, family='binomial', AND = TRUE, gamma = 0.25, plot = TRUE, progressba
   {
     warning(paste("Nodes without variance:",paste(colnames(x)[!NodesToAnalyze],collapse = ", ")))
   }
+  
   x <- as.matrix(x)
   allthemeans <- colMeans(x)
   x <- x[,NodesToAnalyze,drop=FALSE]
@@ -116,21 +119,23 @@ summary.IsingFit <- function(object)
   )
 }
 
-exportNetLogo.IsingFit <- function(x)
+exportNetLogo <- function(object,objectname,....)
 {
-  if (is.character(x))
+  if (is.character(object))
   {
-    x[] <- paste0('"',x,'"')
+    object <- paste0('"',object,'"')
   }
-  if (is.vector(x))
+  if (is.vector(object))
   {
-    return(paste("\n",paste(paste0("[",paste(x, collapse = " "),"]"),collapse="\n"),"\n\n"))
-  } else if (is.matrix(x))
+    res=paste(paste0("[",paste(object, collapse = " "),"]"),collapse="\n")
+  } else if (is.matrix(object))
   {
-    return(paste("[\n",paste(apply(x,1,function(s)paste0("[",paste(s, collapse = " "),"]")),collapse="\n"),"\n]")  )
+    res=paste("[\n",paste(apply(object,1,function(s)paste0("[",paste(s, collapse = " "),"]")),collapse="\n"),"\n]")
   } else stop("Object not supported")
-  
+  write.table(res,file=paste0(objectname,".txt"),row.names=FALSE, col.names=FALSE,quote=FALSE)
+  return(res)
 }
+
 
 # 
 # print(fit)
