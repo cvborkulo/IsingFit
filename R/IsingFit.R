@@ -58,7 +58,6 @@ function(x, family='binomial', AND = TRUE, gamma = 0.25, plot = TRUE, progressba
     if (progressbar==TRUE) setTxtProgressBar(pb, i)
   }
   
-  # logl_Msum <- apply( logl_M , c(2,3) , sum , na.rm=TRUE )
   logl_Msum <- colSums( logl_M , 1, na.rm=FALSE )
   if (progressbar==TRUE) close(pb)
   sumlogl <- logl_Msum 
