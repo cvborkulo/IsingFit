@@ -15,8 +15,6 @@ Version: \tab 1.0\cr
 Date: \tab 2013-08-22\cr
 License: \tab What license is it under?\cr
 }
-~~ An overview of how to use the package, including the most ~~
-~~ important functions ~~
 }
 \author{
 Claudia D. van Borkulo, Sacha Epskamp, with contributions from Alexander Robitzsch
@@ -24,7 +22,6 @@ Claudia D. van Borkulo, Sacha Epskamp, with contributions from Alexander Robitzs
 Maintainer: Claudia D. van Borkulo <cvborkulo@gmail.com>
 }
 \references{
-~~ Literature or other references for background information ~~
 Chen, J., & Chen, Z. (2008). Extended bayesian information criteria for model selection with large model spaces. Biometrika, 95(3), 759-771.
 
 Foygel, R., & Drton, M. (2011). Bayesian model choice and information criteria in sparse generalized linear models. arXiv preprint arXiv:1112.5635.

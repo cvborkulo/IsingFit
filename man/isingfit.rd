@@ -45,10 +45,18 @@ IsingFit returns (invisibly) a 'IsingFit' object that contains the following ite
 \item{time }{The time it took to estimate the network.}
 }
 \references{
-Van Borkulo, C.D., Borsboom, D., Epskamp, S., Blanken, T., Bosschloo, L., Schoevers, R. A., & Waldorp, L. J. (2013). A new method for constructing networks from binary data. Manuscript submitted for publication.
+Chen, J., & Chen, Z. (2008). Extended bayesian information criteria for model selection with large model spaces. Biometrika, 95(3), 759-771.
+
+Foygel, R., & Drton, M. (2011). Bayesian model choice and information criteria in sparse generalized linear models. arXiv preprint arXiv:1112.5635.
+
+Ravikumar, P., Wainwright, M. J., & Lafferty, J. D. (2010). High-dimensional Ising model selection using l1-regularized logistic regression. The Annals of Statistics, 38, 1287 - 1319.
+
+Van Borkulo, C. D., Borsboom, D., Epskamp, S., Blanken, T. F., Boschloo, L., Schoevers, R. A., & Waldorp, L. J. (manuscript submitted for publication). A new method for constructing networks from binary data.
 }
 \author{
-Claudia van Borkulo <cvborkulo@gmail.com>
+Claudia D. van Borkulo, Sacha Epskamp, with contributions from Alexander Robitzsch
+
+Maintainer: Claudia D. van Borkulo <cvborkulo@gmail.com>
 }
 \note{
 See also my website: http://cvborkulo.com
