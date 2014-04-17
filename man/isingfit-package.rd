@@ -11,8 +11,8 @@ This network estimation procedure eLasso, which is based on the Ising model, com
 \tabular{ll}{
 Package: \tab IsingFit\cr
 Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2013-08-22\cr
+Version: \tab 0.2.0\cr
+Date: \tab 2014-04-17\cr
 License: \tab What license is it under?\cr
 }
 }
