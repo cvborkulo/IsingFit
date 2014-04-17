@@ -19,7 +19,7 @@ License: \tab What license is it under?\cr
 ~~ important functions ~~
 }
 \author{
-Claudia D. van Borkulo, Sacha Epskamp
+Claudia D. van Borkulo, Sacha Epskamp, with contributions from Alexander Robitzsch
 
 Maintainer: Claudia D. van Borkulo <cvborkulo@gmail.com>
 }
@@ -31,7 +31,7 @@ Foygel, R., & Drton, M. (2011). Bayesian model choice and information criteria i
 
 Ravikumar, P., Wainwright, M. J., & Lafferty, J. D. (2010). High-dimensional Ising model selection using l1-regularized logistic regression. The Annals of Statistics, 38, 1287 - 1319.
 
-Van Borkulo, C. D., Borsboom, D., Epskamp, S., Blanken, T. F., Boschloo, L., Schoevers, R. A., & Waldorp, L. J. (manuscript submitted for publication). Fitting like a glove: New methodology for constructing networks from psychometric data.
+Van Borkulo, C. D., Borsboom, D., Epskamp, S., Blanken, T. F., Boschloo, L., Schoevers, R. A., & Waldorp, L. J. (manuscript submitted for publication). A new method for constructing networks from binary data.
 }
 % ~~ Optionally other standard keywords, one per line, from file ~~
 % ~~ KEYWORDS in the R documentation directory ~~
