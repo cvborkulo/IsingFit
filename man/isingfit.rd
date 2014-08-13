@@ -51,7 +51,7 @@ Foygel, R., & Drton, M. (2011). Bayesian model choice and information criteria i
 
 Ravikumar, P., Wainwright, M. J., & Lafferty, J. D. (2010). High-dimensional Ising model selection using l1-regularized logistic regression. The Annals of Statistics, 38, 1287 - 1319.
 
-Van Borkulo, C. D., Borsboom, D., Epskamp, S., Blanken, T. F., Boschloo, L., Schoevers, R. A., & Waldorp, L. J. (manuscript submitted for publication). A new method for constructing networks from binary data.
+van Borkulo, C. D., Borsboom, D., Epskamp, S., Blanken, T. F., Boschloo, L., Schoevers, R. A., & Waldorp, L. J. (2014). A new method for constructing networks from binary data. Scientific Reports 4, 5918; DOI:10.1038/srep05918. 
 }
 \author{
 Claudia D. van Borkulo, Sacha Epskamp, with contributions from Alexander Robitzsch
