@@ -72,6 +72,8 @@ function(x, family='binomial', AND = TRUE, gamma = 0.25, plot = TRUE, progressba
   for (i in 1:nvar){
     weights.opt[i,-i] <- betas[[i]][,lambda.opt[i]]
   }
+  asymm.weights <- weights.opt
+  diag(asymm.weights)=0
   if (AND==TRUE) {
     adj <- weights.opt
     adj <- (adj!=0)*1
@@ -90,7 +92,8 @@ function(x, family='binomial', AND = TRUE, gamma = 0.25, plot = TRUE, progressba
   threshNew[NodesToAnalyze] <- thresholds
   if (plot==TRUE) notplot=FALSE else notplot=TRUE
   q <- qgraph(graphNew,layout='spring',labels=names(NodesToAnalyze),DoNotPlot=notplot,...)
-  Res <- list(weiadj = graphNew, thresholds = threshNew, q = q, gamma = gamma, AND = AND, time = Sys.time() - t0)
+  Res <- list(weiadj = graphNew, thresholds = threshNew, q = q, gamma = gamma, 
+              AND = AND, time = Sys.time() - t0, asymm.weights = asymm.weights)
   class(Res) <- "IsingFit"
   return(Res)
 }
