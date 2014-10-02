@@ -8,7 +8,7 @@ This network estimation procedure eLasso, which is based on the Ising model, com
 }
 \usage{
 IsingFit(x, family='binomial', AND = TRUE, gamma = 0.25, 
-plot = TRUE, progressbar = TRUE, ...)
+plot = TRUE, progressbar = TRUE, lowerbound.lambda = NA,...)
 }
 
 \arguments{
@@ -30,6 +30,9 @@ Logical. Should the resulting network be plotted?
   \item{progressbar}{
 Logical. Should the pbar be plotted in order to see the progress of the estimation procedure?
 }
+  \item{lowerbound.lambda}{
+The minimum value of tuning parameter lambda (regularization parameter). Can be used to compare networks that are based on different sample sizes. The value is based on the number of observations in the smallest group n: lambda >= sqrt(log(p)/n). p is the number of variables. When both networks are estimated with the same lowerbound for lambda (based on the smallest group), the two networks can be directly compared.
+}
 \item{\dots}{
 Arguments sent to \code{qgraph}.
 }
@@ -43,6 +46,7 @@ IsingFit returns (invisibly) a 'IsingFit' object that contains the following ite
 \item{gamma }{The value of hyperparameter gamma.}
 \item{AND }{A logical indicating whether the AND-rule is used or not. If not, the OR-rule is used.}
 \item{time }{The time it took to estimate the network.}
+\item{asymm.weights }{The (asymmetrical) weighted adjacency matrix before applying the AND/OR rule.}
 }
 \references{
 Chen, J., & Chen, Z. (2008). Extended bayesian information criteria for model selection with large model spaces. Biometrika, 95(3), 759-771.
