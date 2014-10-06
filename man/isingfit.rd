@@ -47,7 +47,9 @@ IsingFit returns (invisibly) a 'IsingFit' object that contains the following ite
 \item{AND }{A logical indicating whether the AND-rule is used or not. If not, the OR-rule is used.}
 \item{time }{The time it took to estimate the network.}
 \item{asymm.weights }{The (asymmetrical) weighted adjacency matrix before applying the AND/OR rule.}
+\item{lambda.values }{The values of the tuning parameter per node that ensured the best fitting set of neighbors.}
 }
+
 \references{
 Chen, J., & Chen, Z. (2008). Extended bayesian information criteria for model selection with large model spaces. Biometrika, 95(3), 759-771.
 

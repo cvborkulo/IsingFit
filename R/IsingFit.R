@@ -27,6 +27,7 @@ IsingFit <-
       lambdas[[i]] <- a$lambda
       nlambdas[i] <- length(lambdas[[i]])
     }
+    
     if (progressbar==TRUE) pb <- txtProgressBar(max=nvar, style = 3)
     P <- logl <- sumlogl <- J <- matrix(0, max(nlambdas), nvar)
     for (i in 1:nvar)
@@ -65,18 +66,22 @@ IsingFit <-
     penalty <- J * log(nrow(x)) + 2 * gamma * J * log(p)
     EBIC <- -2 * sumlogl + penalty
     
+    lambda.mat <- matrix(NA,nrow(EBIC),ncol(EBIC))
+    for (i in 1:nvar){
+      lambda.mat[,i] <- c(lambdas[[i]],rep(NA,nrow(EBIC)-length(lambdas[[i]])))
+    }
+    
     if(!is.na(lowerbound.lambda)){
-      lambda.mat <- matrix(NA,nrow(EBIC),ncol(EBIC))
-      for (i in 1:ncol(EBIC)){
-        lambda.mat[,i] <- c(lambdas[[i]],rep(NA,nrow(EBIC)-length(lambdas[[i]])))
-      }
       EBIC <- EBIC/(lambda.mat>=lowerbound.lambda)*1
     }
     
     lambda.opt <- apply(EBIC,2,which.min)
+    lambda.val <- rep(NA,nvar)
     thresholds <- 0
-    for(i in 1:length(lambda.opt))
+    for(i in 1:length(lambda.opt)){
+      lambda.val[i] <- lambda.mat[lambda.opt[i],i]
       thresholds[i] <- intercepts[[i]][lambda.opt[i]]
+    }
     weights.opt <- matrix(,nvar,nvar)
     for (i in 1:nvar){
       weights.opt[i,-i] <- betas[[i]][,lambda.opt[i]]
@@ -102,7 +107,8 @@ IsingFit <-
     if (plot==TRUE) notplot=FALSE else notplot=TRUE
     q <- qgraph(graphNew,layout='spring',labels=names(NodesToAnalyze),DoNotPlot=notplot,...)
     Res <- list(weiadj = graphNew, thresholds = threshNew, q = q, gamma = gamma, 
-                AND = AND, time = Sys.time() - t0, asymm.weights = asymm.weights)
+                AND = AND, time = Sys.time() - t0, asymm.weights = asymm.weights,
+                lambda.values = lambda.val)
     class(Res) <- "IsingFit"
     return(Res)
   }
