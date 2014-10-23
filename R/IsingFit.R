@@ -1,7 +1,7 @@
 IsingFit <-
   function(x, family='binomial', AND = TRUE, gamma = 0.25, plot = TRUE, progressbar = TRUE, lowerbound.lambda = NA,...){
     t0 <- Sys.time()
-    
+    xx <- x
     if (family!='binomial') 
       stop ("This procedure is currently only supported for binary (family='binomial') data")
     
@@ -101,7 +101,7 @@ IsingFit <-
     }
     graphNew <- matrix(0,length(NodesToAnalyze),length(NodesToAnalyze))
     graphNew[NodesToAnalyze,NodesToAnalyze] <- meanweights.opt
-    colnames(graphNew) <- rownames(graphNew) <- colnames(x)
+    colnames(graphNew) <- rownames(graphNew) <- colnames(xx)
     threshNew <- ifelse(allthemeans > 0.5, -Inf, Inf)
     threshNew[NodesToAnalyze] <- thresholds
     if (plot==TRUE) notplot=FALSE else notplot=TRUE
