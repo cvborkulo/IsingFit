@@ -31,7 +31,7 @@ Logical. Should the resulting network be plotted?
 Logical. Should the pbar be plotted in order to see the progress of the estimation procedure?
 }
   \item{lowerbound.lambda}{
-The minimum value of tuning parameter lambda (regularization parameter). Can be used to compare networks that are based on different sample sizes. The value is based on the number of observations in the smallest group n: lambda >= sqrt(log(p)/n). p is the number of variables. When both networks are estimated with the same lowerbound for lambda (based on the smallest group), the two networks can be directly compared.
+The minimum value of tuning parameter lambda (regularization parameter). Can be used to compare networks that are based on different sample sizes. The lowerbound.lambda is based on the number of observations in the smallest group n: sqrt(log(p)/n). p is the number of variables, that should be the same in both groups. When both networks are estimated with the same lowerbound for lambda (based on the smallest group), the two networks can be directly compared.
 }
 \item{\dots}{
 Arguments sent to \code{qgraph}.
