@@ -5,13 +5,23 @@ IsingFit <-
     if (family!='binomial') 
       stop ("This procedure is currently only supported for binary (family='binomial') data")
     
-    NodesToAnalyze <- apply(x,2,sd, na.rm=TRUE) != 0
+    ## Check to prevent error of lognet() in package glmnet
+    checklognet <- function(y){
+      res <- c() # 0: too little variance, 1: good to go
+      y=as.factor(y)
+      ntab=table(y)
+      minclass=min(ntab)
+      if(minclass<=1) res=0 else res=1
+      return(res)
+    }
+    NodesToAnalyze <- apply(x,2,checklognet) !=0
     names(NodesToAnalyze) <- colnames(x)
     if (!any(NodesToAnalyze)) stop("No variance in dataset")
     if (any(!NodesToAnalyze))
     {
-      warning(paste("Nodes without variance:",paste(colnames(x)[!NodesToAnalyze],collapse = ", ")))
+      warning(paste("Nodes with too little variance (not allowed):",paste(colnames(x)[!NodesToAnalyze],collapse = ", ")))
     }
+    ##
     
     x <- as.matrix(x)
     allthemeans <- colMeans(x)
@@ -136,22 +146,6 @@ summary.IsingFit <- function(object)
   )
 }
 
-exportNetLogo <- function(object,objectname,....)
-{
-  if (is.character(object))
-  {
-    object <- paste0('"',object,'"')
-  }
-  if (is.vector(object))
-  {
-    res=paste(paste0("[",paste(object, collapse = " "),"]"),collapse="\n")
-  } else if (is.matrix(object))
-  {
-    res=paste("[\n",paste(apply(object,1,function(s)paste0("[",paste(s, collapse = " "),"]")),collapse="\n"),"\n]")
-  } else stop("Object not supported")
-  write.table(res,file=paste0(objectname,".txt"),row.names=FALSE, col.names=FALSE,quote=FALSE)
-  return(res)
-}
 
 
 # 
