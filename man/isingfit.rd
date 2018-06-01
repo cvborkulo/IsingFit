@@ -60,7 +60,7 @@ Ravikumar, P., Wainwright, M. J., & Lafferty, J. D. (2010). High-dimensional Isi
 van Borkulo, C. D., Borsboom, D., Epskamp, S., Blanken, T. F., Boschloo, L., Schoevers, R. A., & Waldorp, L. J. (2014). A new method for constructing networks from binary data. Scientific Reports 4, 5918; DOI:10.1038/srep05918. 
 }
 \author{
-Claudia D. van Borkulo, Sacha Epskamp, with contributions from Alexander Robitzsch
+Claudia D. van Borkulo, Sacha Epskamp; with contributions from Alexander Robitzsch and Mihai Alexandru Constantin
 
 Maintainer: Claudia D. van Borkulo <cvborkulo@gmail.com>
 }

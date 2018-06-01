@@ -11,14 +11,14 @@ This network estimation procedure eLasso, which is based on the Ising model, com
 \tabular{ll}{
 Package: \tab IsingFit\cr
 Type: \tab Package\cr
-Version: \tab 0.3.1\cr
-Date: \tab 2016-9-6\cr
+Version: \tab 0.3.2\cr
+Date: \tab 2018-6-1\cr
 
 License: \tab What license is it under?\cr
 }
 }
 \author{
-Claudia D. van Borkulo, Sacha Epskamp, with contributions from Alexander Robitzsch
+Claudia D. van Borkulo, Sacha Epskamp; with contributions from Alexander Robitzsch and Mihai Alexandru Constantin
 
 Maintainer: Claudia D. van Borkulo <cvborkulo@gmail.com>
 }

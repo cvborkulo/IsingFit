@@ -6,15 +6,25 @@ IsingFit <-
       stop ("This procedure is currently only supported for binary (family='binomial') data")
     
     ## Check to prevent error of lognet() in package glmnet
-    checklognet <- function(y){
-      res <- c() # 0: too little variance, 1: good to go
-      y=as.factor(y)
-      ntab=table(y)
-      minclass=min(ntab)
-      if(minclass<=1) res=0 else res=1
-      return(res)
+    # checklognet <- function(y){
+    #   res <- c() # 0: too little variance, 1: good to go
+    #   y=as.factor(y)
+    #   ntab=table(y)
+    #   minclass=min(ntab)
+    #   if(minclass<=1) res=0 else res=1
+    #   return(res)
+    # }
+    
+    allowedNodes <- function(nodeValues) {
+      nodeValues = as.factor(nodeValues)
+      valuesFrequency = table(nodeValues)
+      minFrequency = min(valuesFrequency)
+      maxFrequency = max(valuesFrequency)
+      if(minFrequency <= 1 || maxFrequency >= length(nodeValues) - 1) return(0) else return(1)
     }
-    NodesToAnalyze <- apply(x,2,checklognet) !=0
+    
+    # NodesToAnalyze <- apply(x,2,checklognet) !=0
+    NodesToAnalyze <- apply(x,2,allowedNodes) !=0
     names(NodesToAnalyze) <- colnames(x)
     if (!any(NodesToAnalyze)) stop("No variance in dataset")
     if (any(!NodesToAnalyze))
