@@ -1,3 +1,6 @@
+Changes in version 0.4.1:
+  - Added Jesse Boot as contributer
+
 Changes in version 0.4:
     - Maintainer (temporarily) changed to Sacha Epskamp
     - Added the min_sum argument for handling selection bias (Boot, De Ron, Haslbeck & Epskamp, in preperation)
