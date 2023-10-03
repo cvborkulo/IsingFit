@@ -1,12 +1,11 @@
 Package: IsingFit
 Type: Package
 Title: Fitting Ising Models Using the ELasso Method
-Version: 0.3.2
-Date: 2018-6-1
+Version: 0.4
 Depends: R (>= 3.0.0)
 Imports:  qgraph, Matrix, glmnet
 Suggests: IsingSampler
 Author: Claudia van Borkulo, Sacha Epskamp; with contributions from Alexander Robitzsch and Mihai Alexandru Constantin
-Maintainer: Claudia van Borkulo <cvborkulo@gmail.com>
+Maintainer: Sacha Epskamp <mail@sachaepskamp.com>
 Description: This network estimation procedure eLasso, which is based on the Ising model, combines l1-regularized logistic regression with model selection based on the Extended Bayesian Information Criterion (EBIC). EBIC is a fit measure that identifies relevant relationships between variables. The resulting network consists of variables as nodes and relevant relationships as edges. Can deal with binary data.
 License: GPL-2

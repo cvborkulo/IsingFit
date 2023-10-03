@@ -38,7 +38,24 @@ IsingFit <-
     ##
 
     x <- as.matrix(x)
-    if (!all( x == 1 | x== 0)) {warning("IsingFit only supports data that is encoded as (0,1)")}
+    
+    # Check data:
+    # Any missing?
+    if (any(is.na(x))){
+      stop("IsingFit does not support missing data")
+    }
+    
+    # Binary?
+    if (!all( x == 1 | x== 0)) {
+      stop("IsingFit only supports data that is encoded as (0,1)")
+    }
+    
+    # Minimum sum score?
+    if (any(rowSums(x) < min_sum)){
+      stop("Rows detected with sumscore < min_sum")
+    }
+    
+    
     allthemeans <- colMeans(x)
     x <- x[, NodesToAnalyze, drop = FALSE]
     nvar <- ncol(x)

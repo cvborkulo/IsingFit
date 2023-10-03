@@ -1,0 +1,4 @@
+Changes in version 0.4:
+    - Maintainer (temporarily) changed to Sacha Epskamp
+    - Added the min_sum argument for handling selection bias (Boot, De Ron, Haslbeck & Epskamp, in preperation)
+    - IsingFit now gives an error when the data is not binary or contains missing values
