@@ -7,8 +7,10 @@ Network estimation using the eLasso method
 This network estimation procedure eLasso, which is based on the Ising model, combines l1-regularized logistic regression with model selection based on the Extended Bayesian Information Criterion (EBIC). EBIC is a fit measure that identifies relevant relationships between variables. The resulting network consists of variables as nodes and relevant relationships as edges. Can deal with binary data.
 }
 \usage{
-IsingFit(x, family='binomial', AND = TRUE, gamma = 0.25, 
-plot = TRUE, progressbar = TRUE, lowerbound.lambda = NA,...)
+IsingFit(x, family = "binomial", AND = TRUE, gamma = 0.25, plot
+                 = TRUE, progressbar = TRUE, min_sum = -Inf,
+                 lowerbound.lambda = NA, ...)
+
 }
 
 \arguments{
@@ -30,6 +32,7 @@ Logical. Should the resulting network be plotted?
   \item{progressbar}{
 Logical. Should the pbar be plotted in order to see the progress of the estimation procedure?
 }
+\item{min_sum}{ The minimum sum score that is artifically possible in the dataset. Defaults to -Inf. Set this only if you know a lower sum score is not possible in the data, for example due to selection bias.}
   \item{lowerbound.lambda}{
 The minimum value of tuning parameter lambda (regularization parameter). Can be used to compare networks that are based on different sample sizes. The lowerbound.lambda is based on the number of observations in the smallest group n: sqrt(log(p)/n). p is the number of variables, that should be the same in both groups. When both networks are estimated with the same lowerbound for lambda (based on the smallest group), the two networks can be directly compared.
 }
